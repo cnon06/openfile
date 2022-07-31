@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 
 import 'package:flutter/material.dart';
-
+import 'package:open_file/open_file.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -25,9 +25,8 @@ class _MyHomePageState extends State<MyHomePage> {
       setState(() {
         fileString = result.files.single.path!.toString();
         fileExtension = result.files.single.extension!.toString();
+        OpenFile.open(fileString);
       });
-
-      
     } else {
       fileString = "User canceled the picker.";
       // User canceled the picker
@@ -44,19 +43,20 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text("File: $fileString, File Extension: $fileExtension"),
-            // Image.network(fileString),
-            (fileString == "") 
-                ? const Text("Select Image")
-                : fileExtension == "jpg" || fileExtension == "png" ? Flexible(
-                    child: Image.file(
-                      File(fileString),
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                    ),
-                  ) 
-                  : 
-                  const Text("You must select an image of which extension is jpg or png."),
+            // Text("File: $fileString, File Extension: $fileExtension"),
+            // // Image.network(fileString),
+            // (fileString == "")
+            //     ? const Text("Select Image")
+            //     : fileExtension == "jpg" || fileExtension == "png"
+            //         ? Flexible(
+            //             child: Image.file(
+            //               File(fileString),
+            //               fit: BoxFit.cover,
+            //               width: double.infinity,
+            //             ),
+            //           )
+            //         : const Text(
+            //             "You must select an image of which extension is jpg or png."),
             TextButton(
                 onPressed: () {
                   singleFile();
