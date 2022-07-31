@@ -43,20 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // Text("File: $fileString, File Extension: $fileExtension"),
-            // // Image.network(fileString),
-            // (fileString == "")
-            //     ? const Text("Select Image")
-            //     : fileExtension == "jpg" || fileExtension == "png"
-            //         ? Flexible(
-            //             child: Image.file(
-            //               File(fileString),
-            //               fit: BoxFit.cover,
-            //               width: double.infinity,
-            //             ),
-            //           )
-            //         : const Text(
-            //             "You must select an image of which extension is jpg or png."),
+            
             TextButton(
                 onPressed: () {
                   singleFile();
